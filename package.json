@@ -1,0 +1,16 @@
+{
+  "name": "shreyas-23rd-birthday",
+  "version": "1.0.0",
+  "description": "Shreya's 23rd Birthday Odyssey",
+  "main": "server.js",
+  "scripts": {
+    "build": "echo 'Static build ready'",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "birthday",
+    "celebration"
+  ],
+  "author": "",
+  "license": "ISC"
+}

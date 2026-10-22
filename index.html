@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 23rd Birthday Shreya! 💖 | To My Cutu</title>
+  
+  <!-- Tailwind CSS via CDN for instant zero-config styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+</head>
+<body class="antialiased selection:bg-rose-200 selection:text-rose-900 pb-24">
+
+  <!-- Background Canvas for Floating Hearts & Twinkling Stars -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ==========================================
+       PLAYFUL VIP LOGIN & SECURITY PORTAL
+       ========================================== -->
+  <div id="welcome-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-2xl transition-all duration-700 overflow-y-auto">
+    <div class="glass-panel max-w-xl w-full p-6 sm:p-8 my-auto relative overflow-hidden border-2 border-rose-300 shadow-2xl text-left bg-white/95">
+      
+      <!-- Top Decorative Glows -->
+      <div class="absolute -top-12 -right-12 w-40 h-40 bg-rose-400/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-12 -left-12 w-40 h-40 bg-pink-400/25 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Portal Header -->
+      <div class="flex items-center justify-between border-b border-rose-100 pb-3 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl animate-pulse">💖</span>
+          <div>
+            <h3 class="text-xs font-mono font-bold text-gray-900 uppercase tracking-widest">SHREYA'S SANCTUARY // v23.0</h3>
+            <p class="text-[10px] text-rose-500 font-semibold">Reserved with Endless Love for Shreya Kabra</p>
+          </div>
+        </div>
+        <span id="login-progress-badge" class="text-[11px] font-mono font-bold bg-rose-100 text-rose-700 px-2.5 py-1 rounded-full border border-rose-200">
+          0 / 3 Cleared
+        </span>
+      </div>
+
+      <!-- Playful & Loving Intro -->
+      <div class="text-center mb-5">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100/90 text-rose-700 text-[10px] font-bold uppercase tracking-wider mb-2 border border-rose-200">
+          <span>✨ Tomorrow You Turn 23, My Cutiepie ✨</span>
+        </div>
+        <h2 class="font-serif text-2xl sm:text-3xl font-black text-gray-900">
+          Welcome Home, <span class="bg-gradient-to-r from-rose-600 via-pink-600 to-rose-500 bg-clip-text text-transparent">Shreya</span> ❤️
+        </h2>
+        <p class="text-xs text-gray-600 mt-2 leading-relaxed max-w-md mx-auto">
+          I know how exhausted you've been with Mumbai, the flat hunt, and office deadlines till the 29th. Tomorrow is your special day, and this entire universe was created with all my love, care, and adoration just to make you feel cherished and safe. Complete these 3 playful checks to enter your birthday universe!
+        </p>
+      </div>
+
+      <!-- The 3 Playful Verification Steps -->
+      <div class="space-y-4">
+        
+        <!-- Step 1: Select Royal Alias -->
+        <div class="login-step-card p-3.5 bg-rose-50/70 rounded-2xl border border-rose-200">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-bold text-rose-800 uppercase tracking-wider">Step 1: Select Your True Identity</span>
+            <span id="step-1-status" class="text-[10px] text-gray-400 font-medium italic">Pending</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2" id="alias-chips">
+            <button class="login-chip-btn text-xs font-semibold p-2.5 rounded-xl border border-rose-200 bg-white text-gray-700 flex items-center gap-2 justify-center" data-alias="Queen">
+              <span>👑</span>
+              <span>The 23-Yr Queen</span>
+            </button>
+            <button class="login-chip-btn text-xs font-semibold p-2.5 rounded-xl border border-rose-200 bg-white text-gray-700 flex items-center gap-2 justify-center" data-alias="Gucchu">
+              <span>🧸</span>
+
+              <span>Gucchu Pucchu</span>
+            </button>
+            <button class="login-chip-btn text-xs font-semibold p-2.5 rounded-xl border border-rose-200 bg-white text-gray-700 flex items-center gap-2 justify-center" data-alias="Pookie">
+              <span>🎀</span>
+              <span>Forever Pookiebear</span>
+            </button>
+            <button class="login-chip-btn text-xs font-semibold p-2.5 rounded-xl border border-rose-200 bg-white text-gray-700 flex items-center gap-2 justify-center" data-alias="Dhamaka">
+              <span>💥 </span>
+              <span>Chhota Packet</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: The Flying Elephant Protocol -->
+        <div id="step-2-card" class="login-step-card p-3.5 bg-amber-50/70 rounded-2xl border border-amber-200">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-bold text-amber-900 uppercase tracking-wider">Step 2: Biology Truth Check</span>
+            <span id="step-2-status" class="text-[10px] text-gray-400 font-medium italic">Pending</span>
+          </div>
+          <p class="text-xs text-gray-700 mb-2 font-medium">According to household law, do elephants fly during your 5 days?</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button id="elephant-yes-btn" class="login-chip-btn text-xs font-semibold p-2.5 rounded-xl border border-amber-200 bg-white text-gray-700 flex items-center gap-2 justify-center">
+              <span>🐘 </span>
+              <span>Yes baba, elephants fly! ✈️</span>
+
+            </button>
+            <button id="elephant-no-btn" class="login-chip-btn text-xs font-semibold p-2.5 rounded-xl border border-amber-200 bg-white text-gray-700 flex items-center gap-2 justify-center">
+              <span>🚫</span>
+
+              <span>No, gravity exists</span>
+            </button>
+          </div>
+          <p id="elephant-feedback" class="hidden text-[11px] font-semibold mt-2 text-center"></p>
+        </div>
+
+        <!-- Step 3: Essential Fuel Check -->
+        <div id="step-3-card" class="login-step-card p-3.5 bg-orange-50/70 rounded-2xl border border-orange-200">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-bold text-orange-900 uppercase tracking-wider">Step 3: Essential Fuel Ration</span>
+            <span id="step-3-status" class="text-[10px] text-gray-400 font-medium italic">Pending</span>
+          </div>
+          <p class="text-xs text-gray-700 mb-2 font-medium">What is the mandatory liquid required to solve 50% of your problems?</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button id="fuel-chai-btn" class="login-chip-btn text-xs font-semibold p-2.5 rounded-xl border border-orange-200 bg-white text-gray-700 flex items-center gap-2 justify-center">
+              <span>☕</span>
+              <span>Hot Chai / Tea Post Trip</span>
+            </button>
+            <button id="fuel-salad-btn" class="login-chip-btn text-xs font-semibold p-2.5 rounded-xl border border-orange-200 bg-white text-gray-700 flex items-center gap-2 justify-center">
+              <span>🥗 </span>
+              <span>A bowl of plain salad</span>
+            </button>
+          </div>
+          <p id="fuel-feedback" class="hidden text-[11px] font-semibold mt-2 text-center"></p>
+        </div>
+
+      </div>
+
+      <!-- Unlock / Enter Action -->
+      <div class="mt-6 text-center">
+        <button id="welcome-enter-btn" disabled class="w-full py-4 px-6 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all duration-300 bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300 shadow-none">
+          <span>🔒 Complete the 3 checks above to unlock</span>
+        </button>
+        <p class="text-[11px] text-gray-400 mt-2.5 italic">Turn your sound on for the most magical experience 🎵</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FLOATING TOP HUD (SURPRISE COUNTER & SOUND)
+       ========================================== -->
+  <header class="fixed top-4 left-1/2 transform -translate-x-1/2 z-40 w-[94%] max-w-4xl hud-progress rounded-2xl px-5 py-3 flex items-center justify-between border border-white/60">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl animate-pulse">🎂</span>
+      <div>
+        <h2 class="text-xs font-bold text-gray-800 tracking-wide uppercase font-sans">Shreya's 23rd Odyssey</h2>
+        <div class="flex items-center gap-2 mt-0.5">
+          <div class="w-24 md:w-44 h-2 bg-rose-100 rounded-full overflow-hidden border border-rose-200">
+            <div id="surprise-bar" class="h-full bg-gradient-to-r from-rose-400 to-pink-600 transition-all duration-500" style="width: 0%"></div>
+          </div>
+          <span class="text-xs font-bold text-rose-600 font-mono"><span id="surprise-count">0</span>/23</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <button id="global-mute-btn" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 transition-all flex items-center gap-1.5 shadow-sm">
+        <span>🎵 Sound On</span>
+      </button>
+      <a href="#cake-section" class="hidden sm:inline-block px-3 py-1.5 rounded-full text-xs font-semibold bg-rose-500 hover:bg-rose-600 text-white shadow-md shadow-rose-500/20 transition-all">
+        Explore 💖
+      </a>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO BANNER
+       ========================================== -->
+  <section class="relative pt-32 md:pt-40 pb-16 px-4 max-w-5xl mx-auto text-center z-10">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100/80 text-rose-700 text-xs font-bold uppercase tracking-widest border border-rose-200 mb-4 animate-fade-in">
+      <span>✨ 23 Years of Pure Radiance & Beauty ✨</span>
+    </div>
+    
+    <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-black text-gray-900 tracking-tight glow-text mb-4">
+      Happy Birthday, <br class="sm:hidden">
+      <span class="bg-gradient-to-r from-rose-600 via-pink-600 to-rose-500 bg-clip-text text-transparent">
+        Shreya Kabra!
+      </span>
+    </h1>
+
+    <p class="font-hand text-2xl sm:text-3xl text-rose-600 font-bold mb-4">
+      To my Cutu, Cutie, Gucchu Pucchu & forever Pookiebear ❤️
+    </p>
+
+    <!-- Tender Loving Note -->
+    <div class="max-w-xl mx-auto p-4 sm:p-5 bg-rose-50/90 rounded-2xl border-2 border-rose-200 shadow-sm mb-6 text-center">
+      <p class="font-hand text-xl text-rose-600 font-bold">"To the girl who walked around the library on 14th Sept 2023..."</p>
+      <p class="text-xs sm:text-sm text-gray-700 mt-1 leading-relaxed">
+        Tomorrow is your 23rd Birthday. I know you've been working so hard in Mumbai, but you are my home, my peace, and my greatest pride. Take a deep breath, sit back, and let me pamper you with this universe made just for you. ❤️
+      </p>
+    </div>
+
+    <p class="max-w-2xl mx-auto text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
+      Today, the universe celebrates 23 years of the kindest, smartest, most breathtaking soul. 
+      Scroll down to discover <strong class="text-rose-600">23 special surprises</strong> crafted just for you—click, play, and unlock them all!
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3 text-xs font-semibold text-rose-800">
+      <span class="px-3.5 py-1.5 glass-card rounded-full">🎂 23 Glowing Candles</span>
+      <span class="px-3.5 py-1.5 glass-card rounded-full">💌 23 Love Envelopes</span>
+      <span class="px-3.5 py-1.5 glass-card rounded-full">💆‍♀️ Baby Treatment Sanctuary</span>
+      <span class="px-3.5 py-1.5 glass-card rounded-full">📜 Royal Wax-Sealed Letter</span>
+    </div>
+  </section>
+
+  <!-- MAIN SURPRISES CONTAINER -->
+  <main class="max-w-5xl mx-auto px-4 space-y-16 relative z-10">
+
+    <!-- ==========================================
+         SURPRISE 1: 23-CANDLE INTERACTIVE CAKE
+         ========================================== -->
+    <section id="cake-section" class="glass-panel p-6 sm:p-10 relative overflow-hidden">
+      <div class="surprise-badge locked" data-surprise-badge="1">
+        <span>🔒 Surprise #1</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">1. The Grand 23-Candle Birthday Cake 🎂</h2>
+        <p class="text-sm text-gray-600 mt-2">Make 23 secret wishes in your heart, Cutu. Every single candle is lit with my prayers and unconditional love for your happiness and success.</p>
+      </div>
+
+      <!-- Cake Visual -->
+      <div class="cake-container max-w-md mx-auto flex flex-col items-center">
+        <!-- 23 Candles Row -->
+        <div id="cake-candles-row" class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-2 px-4">
+          <!-- Dynamically populated via app.js -->
+        </div>
+
+        <!-- Top Layer -->
+        <div class="w-64 sm:w-80 h-16 bg-gradient-to-b from-rose-200 via-pink-200 to-rose-300 rounded-t-2xl shadow-md border-t-4 border-rose-300 flex items-center justify-center relative">
+          <span class="font-hand text-xl text-rose-700 font-bold">Shreya • 23</span>
+          <div class="absolute -bottom-2 w-full flex justify-around text-rose-400 text-xs">
+            <span>💖</span><span>✨</span><span>💖</span><span>✨</span><span>💖</span>
+          </div>
+        </div>
+
+        <!-- Middle Layer -->
+        <div class="w-72 sm:w-96 h-20 bg-gradient-to-b from-pink-300 via-rose-300 to-pink-400 shadow-lg border-t-2 border-white flex items-center justify-center relative">
+          <span class="font-serif text-white font-bold tracking-widest text-sm uppercase">Forever My Pookiebear</span>
+        </div>
+
+        <!-- Base Stand -->
+        <div class="w-80 sm:w-[420px] h-8 bg-gradient-to-r from-amber-100 via-yellow-100 to-amber-200 rounded-full shadow-2xl border-b-4 border-amber-300"></div>
+      </div>
+
+      <p id="cake-status" class="text-center text-sm font-semibold text-gray-600 mt-6 min-h-[24px]">
+        Make a wish in your heart, Cutu, then blow out your candles!
+      </p>
+
+      <div class="flex justify-center gap-4 mt-4">
+        <button id="blow-candles-btn" class="px-6 py-2.5 bg-rose-500 hover:bg-rose-600 text-white rounded-xl font-bold shadow-lg shadow-rose-500/20 text-sm flex items-center gap-2 transition-all">
+          <span>💨 Blow Out All 23 Candles</span>
+        </button>
+        <button id="relight-candles-btn" class="px-5 py-2.5 bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 rounded-xl font-semibold text-sm transition-all">
+          <span>🕯️ Re-light All</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 2: 23 REASONS WHY I LOVE SHREYA
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="2">
+        <span>🔒 Surprise #2</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">2. 23 Reasons Why I Love Shreya 💌</h2>
+        <p class="text-sm text-gray-600 mt-2">23 special handwritten notes tucked inside sealed envelopes. Tap each envelope to flip and read why you're my whole world.</p>
+      </div>
+
+      <div id="reasons-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- 23 Envelopes dynamically populated via app.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 3: STARLIGHT CONSTELLATION MAP
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative overflow-hidden">
+      <div class="surprise-badge locked" data-surprise-badge="3">
+        <span>🔒 Surprise #3</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">3. The Celestial Starlight Constellation ✨</h2>
+        <p class="text-sm text-gray-600 mt-2">Connect the stars to reveal the constellation named after you - <em>Shreya-23</em>, the brightest light in my entire sky. Click each star to draw our line.</p>
+      </div>
+
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-700 max-w-2xl mx-auto">
+        <canvas id="constellation-canvas" class="w-full cursor-pointer"></canvas>
+      </div>
+
+      <div class="flex justify-center mt-4">
+        <button id="autoconnect-stars-btn" class="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-amber-300 font-semibold rounded-xl text-xs border border-amber-300/30 flex items-center gap-2">
+          <span>✨ Connect All Stars Automatically</span>
+        </button>
+      </div>
+
+      <!-- Official Certificate Box -->
+      <div id="constellation-cert" class="hidden max-w-md mx-auto mt-6 p-5 bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl text-center shadow-lg animate-fade-in">
+        <p class="text-xs font-bold text-amber-800 uppercase tracking-widest">✨ Official Celestial Registry ✨</p>
+        <h3 class="font-serif text-xl font-bold text-gray-900 mt-2">Constellation: <em>Shreya-23</em></h3>
+        <p class="font-hand text-lg text-rose-600 font-bold mt-1">Coordinates: 23° N, Forever in My Heart</p>
+        <p class="text-sm text-gray-700 mt-3 italic">"Named in honour of Shreya Kabra - the brightest, most radiant star in my entire sky. Every constellation I trace leads back to you."</p>
+        <p class="text-xs text-amber-700 font-semibold mt-3">Discovered: 14th September 2023 • Sangam Library • One Look That Changed Everything</p>
+        <p class="text-xs text-gray-500 mt-1">Shine on, cutu. Year 23 is yours. 🌙✨</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 4: THE MIDNIGHT JUPITER STARLIT DRIVE
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative overflow-hidden">
+      <div class="surprise-badge locked" data-surprise-badge="4">
+        <span>🔒 Surprise #4</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-[10px] font-bold uppercase tracking-wider mb-2 border border-purple-200">
+          <span>✨ Our Sacred Two-Wheeler Adventures ✨</span>
+        </div>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">4. The Starlit Jupiter Road Trip 🛵💨</h2>
+        <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+          Hop on the back of our legendary Jupiter! Cruise along our favorite midnight roads under the moon. Click the throttle to travel between our 5 most unforgettable roadside memories.
+        </p>
+      </div>
+
+      <!-- Jupiter Scooter Dashboard -->
+      <div class="max-w-2xl mx-auto glass-card p-6 sm:p-8 rounded-3xl border-2 border-purple-200 bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 text-white shadow-2xl relative overflow-hidden">
+        
+        <!-- Glowing Moon & Twinkling Stars in background -->
+        <div class="absolute top-3 right-6 text-3xl opacity-90 animate-pulse">🌙</div>
+        <div class="absolute top-8 left-8 text-xs text-purple-300 opacity-60">✨</div>
+        <div class="absolute top-16 right-20 text-xs text-pink-300 opacity-70">✨</div>
+
+        <!-- Dashboard Gauges -->
+        <div class="grid grid-cols-3 gap-2 pb-4 border-b border-purple-800/60 text-center mb-6">
+          <div class="p-2 rounded-xl bg-purple-900/40 border border-purple-700/50">
+            <span class="text-[9px] text-purple-300 uppercase tracking-widest block font-mono">Odometer</span>
+            <span class="text-xs sm:text-sm font-bold font-mono text-purple-200">Almost 4 Years</span>
+          </div>
+          <div class="p-2 rounded-xl bg-purple-900/40 border border-purple-700/50">
+            <span class="text-[9px] text-pink-300 uppercase tracking-widest block font-mono">Fuel Level</span>
+            <span class="text-xs sm:text-sm font-bold font-mono text-pink-200">100% Chai & Love</span>
+          </div>
+          <div class="p-2 rounded-xl bg-purple-900/40 border border-purple-700/50">
+            <span class="text-[9px] text-amber-300 uppercase tracking-widest block font-mono">Destination</span>
+            <span class="text-xs sm:text-sm font-bold font-mono text-amber-200">Together Forever</span>
+          </div>
+        </div>
+
+        <!-- Animated Road & Scooter Display -->
+        <div class="relative py-4 flex flex-col items-center justify-center text-center">
+          <div id="jupiter-scooter-icon" class="text-6xl mb-3 transform transition-transform duration-500 hover:scale-110">
+            🛵💨
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono text-purple-300 bg-purple-900/60 px-3 py-1 rounded-full border border-purple-700/60 mb-4">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span id="jupiter-mile-badge">Stop 1 of 5: Sangam Library</span>
+          </div>
+
+          <!-- Scenic Roadside Story Card -->
+          <div id="jupiter-story-card" class="bg-white/10 backdrop-blur-md p-5 rounded-2xl border border-white/20 max-w-lg w-full text-left transition-all">
+            <div class="flex justify-between items-center mb-2">
+              <span id="jupiter-stop-title" class="font-bold text-pink-300 text-sm sm:text-base flex items-center gap-1.5">
+                <span>📚</span>
+                <span>Mile 1: Sangam Library (14th Sept 2023)</span>
+              </span>
+              <span id="jupiter-stop-tag" class="text-[10px] text-purple-300 font-mono bg-purple-800/80 px-2 py-0.5 rounded-full">Where It Began</span>
+            </div>
+            <p id="jupiter-stop-desc" class="text-xs sm:text-sm text-gray-200 leading-relaxed font-sans">
+              "The exact spot where I couldn't stop looking at you secretly. I kept trying to find excuses just to look in your direction without making it obvious. Joining college at that time gave me the best blessing of my life—you."
+            </p>
+          </div>
+        </div>
+
+        <!-- Road Trip Navigation Controls -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-purple-800/60 mt-4">
+          <div class="flex gap-1.5" id="jupiter-stop-dots">
+            <span class="w-2.5 h-2.5 rounded-full bg-pink-500 scale-125"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-800"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-800"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-800"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-800"></span>
+          </div>
+
+          <button id="jupiter-drive-btn" class="px-6 py-2.5 bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 hover:brightness-110 text-white rounded-full font-bold text-xs sm:text-sm shadow-lg shadow-pink-500/30 flex items-center gap-2 transition-all transform hover:-translate-y-0.5 cursor-pointer">
+            <span>🛵 Cruise to Next Roadside Memory</span>
+            <span>→</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 5: GOLDEN SCRATCH-OFF LOVE COUPONS
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="5">
+        <span>🔒 Surprise #5</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">5. Golden Scratch-Off Love Coupons 🎟️</h2>
+        <p class="text-sm text-gray-600 mt-2">Use your cursor or finger to scratch off the cards and reveal your real-life romantic rewards!</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <!-- Coupon 1 -->
+        <div class="scratch-container h-44 glass-card p-4 relative flex flex-col justify-center items-center text-center bg-gradient-to-br from-rose-50 to-pink-100 border border-rose-300">
+          <p class="text-xs uppercase font-bold text-rose-500">Golden Pass #1</p>
+          <h4 class="font-serif text-lg font-bold text-gray-900 mt-1">Unlimited Chai & Tea Post Dates ☕</h4>
+          <p class="text-xs text-gray-600 mt-1">Valid 24/7 forever. My treat always, whenever you need tea or a break!</p>
+          <canvas id="scratch-1" class="scratch-canvas w-full h-full"></canvas>
+        </div>
+
+        <!-- Coupon 2 -->
+        <div class="scratch-container h-44 glass-card p-4 relative flex flex-col justify-center items-center text-center bg-gradient-to-br from-rose-50 to-pink-100 border border-rose-300">
+          <p class="text-xs uppercase font-bold text-rose-500">Golden Pass #2</p>
+          <h4 class="font-serif text-lg font-bold text-gray-900 mt-1">The Royal Baby Treatment Pass 💆‍♀️</h4>
+          <p class="text-xs text-gray-600 mt-1">Foot massage, pampering, warm hugs & zero stress when you get back!</p>
+          <canvas id="scratch-2" class="scratch-canvas w-full h-full"></canvas>
+        </div>
+
+        <!-- Coupon 3 -->
+        <div class="scratch-container h-44 glass-card p-4 relative flex flex-col justify-center items-center text-center bg-gradient-to-br from-rose-50 to-pink-100 border border-rose-300">
+          <p class="text-xs uppercase font-bold text-rose-500">Golden Pass #3</p>
+          <h4 class="font-serif text-lg font-bold text-gray-900 mt-1">Jupiter Ride & Off-Key Karaoke 🛵🎶</h4>
+          <p class="text-xs text-gray-600 mt-1">Late-night drive, singing at the top of our lungs with zero judgment.</p>
+          <canvas id="scratch-3" class="scratch-canvas w-full h-full"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 6: THE KEEPSAKE VAULT (8 ROMANTIC MILESTONES)
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="6">
+        <span>🔒 Surprise #6</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">6. The Keepsake Vault: 8 Romantic Milestones of Us 💌</h2>
+        <p class="text-sm text-gray-600 mt-2">No photos could ever capture our magic the way my heart does. Tap each memory charm to flip and reveal the secret story behind our favorite moments!</p>
+      </div>
+
+      <div id="keepsake-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+        <!-- Milestone 1 -->
+        <div class="keepsake-card h-64 rounded-2xl relative select-none">
+          <div class="keepsake-inner w-full h-full relative">
+            <div class="keepsake-front absolute inset-0 glass-card p-5 flex flex-col justify-between items-center text-center border-2 border-rose-200 hover:border-rose-400 bg-gradient-to-br from-rose-50/80 to-pink-50/80 shadow-md">
+              <span class="text-xs font-bold text-rose-500 uppercase tracking-widest bg-rose-100/80 px-2.5 py-1 rounded-full">Core Memory #1</span>
+              <div class="my-auto">
+                <span class="text-4xl block mb-2">📚</span>
+                <h4 class="font-serif text-base font-bold text-gray-900">14th Sept 2023: The Library Stare</h4>
+                <p class="text-[11px] text-gray-500 mt-1">Secret glances at Sangam</p>
+              </div>
+              <p class="text-[10px] text-rose-500 font-bold">Tap to flip & read story ✨</p>
+            </div>
+            <div class="keepsake-back absolute inset-0 glass-card p-5 flex flex-col justify-between text-left border-2 border-rose-400 bg-gradient-to-br from-pink-100 to-rose-100 shadow-xl overflow-y-auto">
+              <span class="text-[10px] font-mono text-rose-600 font-bold uppercase">14 September 2023</span>
+              <p class="text-xs text-gray-800 leading-relaxed font-sans my-auto">
+                "I remember watching you walk around the library and I couldn't take my eyes off you. I kept trying to look secretly without making it too obvious. Finding my crush at Sangam was the best twist of fate in my life."
+              </p>
+              <span class="text-[10px] text-rose-600 font-bold text-right">Tap again to flip back 💖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="keepsake-card h-64 rounded-2xl relative select-none">
+          <div class="keepsake-inner w-full h-full relative">
+            <div class="keepsake-front absolute inset-0 glass-card p-5 flex flex-col justify-between items-center text-center border-2 border-amber-200 hover:border-amber-400 bg-gradient-to-br from-amber-50/80 to-orange-50/80 shadow-md">
+              <span class="text-xs font-bold text-amber-600 uppercase tracking-widest bg-amber-100/80 px-2.5 py-1 rounded-full">Core Memory #2</span>
+              <div class="my-auto">
+                <span class="text-4xl block mb-2">🤫</span>
+                <h4 class="font-serif text-base font-bold text-gray-900">3 Year Senior Sangam</h4>
+                <p class="text-[11px] text-gray-500 mt-1">The mysterious code name</p>
+              </div>
+              <p class="text-[10px] text-amber-600 font-bold">Tap to flip & read story ✨</p>
+            </div>
+            <div class="keepsake-back absolute inset-0 glass-card p-5 flex flex-col justify-between text-left border-2 border-amber-400 bg-gradient-to-br from-orange-100 to-amber-100 shadow-xl overflow-y-auto">
+              <span class="text-[10px] font-mono text-amber-700 font-bold uppercase">How It Began</span>
+              <p class="text-xs text-gray-800 leading-relaxed font-sans my-auto">
+                "Who would have thought that a very specific name like '3 Year Senior Sangam' would start it all? It's funny how something that seemed so small at first became the foundation of our entire story."
+              </p>
+              <span class="text-[10px] text-amber-700 font-bold text-right">Tap again to flip back 💖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="keepsake-card h-64 rounded-2xl relative select-none">
+          <div class="keepsake-inner w-full h-full relative">
+            <div class="keepsake-front absolute inset-0 glass-card p-5 flex flex-col justify-between items-center text-center border-2 border-orange-200 hover:border-orange-400 bg-gradient-to-br from-orange-50/80 to-amber-50/80 shadow-md">
+              <span class="text-xs font-bold text-orange-600 uppercase tracking-widest bg-orange-100/80 px-2.5 py-1 rounded-full">Core Memory #3</span>
+              <div class="my-auto">
+                <span class="text-4xl block mb-2">☕</span>
+                <h4 class="font-serif text-base font-bold text-gray-900">The Chai & Tea Post Rivalry</h4>
+                <p class="text-[11px] text-gray-500 mt-1">My sweetest competition</p>
+              </div>
+              <p class="text-[10px] text-orange-600 font-bold">Tap to flip & read story ✨</p>
+            </div>
+            <div class="keepsake-back absolute inset-0 glass-card p-5 flex flex-col justify-between text-left border-2 border-orange-400 bg-gradient-to-br from-amber-100 to-orange-100 shadow-xl overflow-y-auto">
+              <span class="text-[10px] font-mono text-orange-700 font-bold uppercase">The Chai Love Affair</span>
+              <p class="text-xs text-gray-800 leading-relaxed font-sans my-auto">
+                "I'm convinced half your problems can be solved with a cup of chai, and the other half require a trip to Tea Post. If there's ever a competition between me and chai for your attention, I know I'm fighting a losing battle... and I love it!"
+              </p>
+              <span class="text-[10px] text-orange-700 font-bold text-right">Tap again to flip back 💖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="keepsake-card h-64 rounded-2xl relative select-none">
+          <div class="keepsake-inner w-full h-full relative">
+            <div class="keepsake-front absolute inset-0 glass-card p-5 flex flex-col justify-between items-center text-center border-2 border-purple-200 hover:border-purple-400 bg-gradient-to-br from-purple-50/80 to-pink-50/80 shadow-md">
+              <span class="text-xs font-bold text-purple-600 uppercase tracking-widest bg-purple-100/80 px-2.5 py-1 rounded-full">Core Memory #4</span>
+              <div class="my-auto">
+                <span class="text-4xl block mb-2">🛵</span>
+                <h4 class="font-serif text-base font-bold text-gray-900">Jupiter Rides & Karaoke</h4>
+                <p class="text-[11px] text-gray-500 mt-1">Roadside midnight concerts</p>
+              </div>
+              <p class="text-[10px] text-purple-600 font-bold">Tap to flip & read story ✨</p>
+            </div>
+            <div class="keepsake-back absolute inset-0 glass-card p-5 flex flex-col justify-between text-left border-2 border-purple-400 bg-gradient-to-br from-purple-100 to-pink-100 shadow-xl overflow-y-auto">
+              <span class="text-[10px] font-mono text-purple-700 font-bold uppercase">Late-Night Adventures</span>
+              <p class="text-xs text-gray-800 leading-relaxed font-sans my-auto">
+                "Late-night talks, Jupiter rides, blasting music, singing completely off-key, making fun of each other, and having deep talks where I never once felt judged. Pure bliss."
+              </p>
+              <span class="text-[10px] text-purple-700 font-bold text-right">Tap again to flip back 💖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 5 -->
+        <div class="keepsake-card h-64 rounded-2xl relative select-none">
+          <div class="keepsake-inner w-full h-full relative">
+            <div class="keepsake-front absolute inset-0 glass-card p-5 flex flex-col justify-between items-center text-center border-2 border-rose-300 hover:border-rose-500 bg-gradient-to-br from-rose-50/80 to-red-50/80 shadow-md">
+              <span class="text-xs font-bold text-rose-600 uppercase tracking-widest bg-rose-100/80 px-2.5 py-1 rounded-full">Core Memory #5</span><div class="my-auto"><span class="text-4xl block mb-2">🫂</span><!--
+              <div class="my-auto">
+                <span class="text-4xl block mb-2">🥺</span>
+                --><h4 class="font-serif text-base font-bold text-gray-900">CSMT: The Frozen Hug</h4>
+                <p class="text-[11px] text-gray-500 mt-1">When my heart raced</p>
+              </div>
+              <p class="text-[10px] text-rose-600 font-bold">Tap to flip & read story ✨</p>
+            </div>
+            <div class="keepsake-back absolute inset-0 glass-card p-5 flex flex-col justify-between text-left border-2 border-rose-500 bg-gradient-to-br from-red-100 to-rose-100 shadow-xl overflow-y-auto">
+              <span class="text-[10px] font-mono text-rose-700 font-bold uppercase">The Reunion at CSMT</span>
+              <p class="text-xs text-gray-800 leading-relaxed font-sans my-auto">
+                "The second you ran to me and hugged me at the station, my heart was racing and I literally prayed: 'Hey bhagwan please iss time ko yahi freeze kar do.' I get chills remembering that exact moment."
+              </p>
+              <span class="text-[10px] text-rose-700 font-bold text-right">Tap again to flip back 💖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 6 -->
+        <div class="keepsake-card h-64 rounded-2xl relative select-none">
+          <div class="keepsake-inner w-full h-full relative">
+            <div class="keepsake-front absolute inset-0 glass-card p-5 flex flex-col justify-between items-center text-center border-2 border-teal-200 hover:border-teal-400 bg-gradient-to-br from-teal-50/80 to-cyan-50/80 shadow-md">
+              <span class="text-xs font-bold text-teal-600 uppercase tracking-widest bg-teal-100/80 px-2.5 py-1 rounded-full">Core Memory #6</span><div class="my-auto"><span class="text-4xl block mb-2">🚲</span><!--
+              <div class="my-auto">
+                <span class="text-4xl block mb-2">🥺</span>
+                --><h4 class="font-serif text-base font-bold text-gray-900">Marine Drive Cycling</h4>
+                <p class="text-[11px] text-gray-500 mt-1">Arabian Sea midnight breeze</p>
+              </div>
+              <p class="text-[10px] text-teal-600 font-bold">Tap to flip & read story ✨</p>
+            </div>
+            <div class="keepsake-back absolute inset-0 glass-card p-5 flex flex-col justify-between text-left border-2 border-teal-400 bg-gradient-to-br from-cyan-100 to-teal-100 shadow-xl overflow-y-auto">
+              <span class="text-[10px] font-mono text-teal-700 font-bold uppercase">Marine Drive Adventures</span>
+              <p class="text-xs text-gray-800 leading-relaxed font-sans my-auto">
+                "Sitting by Marine Drive, shutting my mind, relaxing and enjoying your company. Then midnight cycling together—pure joy. I'd cycle across the world if it meant riding next to you, Cutu."
+              </p>
+              <span class="text-[10px] text-teal-700 font-bold text-right">Tap again to flip back 💖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 7 -->
+        <div class="keepsake-card h-64 rounded-2xl relative select-none">
+          <div class="keepsake-inner w-full h-full relative">
+            <div class="keepsake-front absolute inset-0 glass-card p-5 flex flex-col justify-between items-center text-center border-2 border-emerald-200 hover:border-emerald-400 bg-gradient-to-br from-emerald-50/80 to-teal-50/80 shadow-md">
+              <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-100/80 px-2.5 py-1 rounded-full">Core Memory #7</span>
+              <div class="my-auto">
+                <span class="text-4xl block mb-2">🛕</span>
+                <h4 class="font-serif text-base font-bold text-gray-900">ISKCON: A Dream Come True</h4>
+                <p class="text-[11px] text-gray-500 mt-1">Hand-in-hand blessings</p>
+              </div>
+              <p class="text-[10px] text-emerald-600 font-bold">Tap to flip & read story ✨</p>
+            </div>
+            <div class="keepsake-back absolute inset-0 glass-card p-5 flex flex-col justify-between text-left border-2 border-emerald-400 bg-gradient-to-br from-emerald-100 to-teal-100 shadow-xl overflow-y-auto">
+              <span class="text-[10px] font-mono text-emerald-700 font-bold uppercase">Holding Hands at Mandir</span>
+              <p class="text-xs text-gray-800 leading-relaxed font-sans my-auto">
+                "Going to ISKCON with you was like a dream come true. Holding my favorite person's hand and walking into the mandir... you made that sacred wish of mine come true. Thank you, my Cutu."
+              </p>
+              <span class="text-[10px] text-emerald-700 font-bold text-right">Tap again to flip back 💖</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 8 -->
+        <div class="keepsake-card h-64 rounded-2xl relative select-none">
+          <div class="keepsake-inner w-full h-full relative">
+            <div class="keepsake-front absolute inset-0 glass-card p-5 flex flex-col justify-between items-center text-center border-2 border-indigo-200 hover:border-indigo-400 bg-gradient-to-br from-indigo-50/80 to-purple-50/80 shadow-md">
+              <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest bg-indigo-100/80 px-2.5 py-1 rounded-full">Core Memory #8</span>
+              <div class="my-auto">
+                <span class="text-4xl block mb-2">🚕</span>
+                <h4 class="font-serif text-base font-bold text-gray-900">The Cab Ride Baby Nap</h4>
+                <p class="text-[11px] text-gray-500 mt-1">Safe and cozy in my arms</p>
+              </div>
+              <p class="text-[10px] text-indigo-600 font-bold">Tap to flip & read story ✨</p>
+            </div>
+            <div class="keepsake-back absolute inset-0 glass-card p-5 flex flex-col justify-between text-left border-2 border-indigo-400 bg-gradient-to-br from-indigo-100 to-purple-100 shadow-xl overflow-y-auto">
+              <span class="text-[10px] font-mono text-indigo-700 font-bold uppercase">Safe & Sound</span>
+              <p class="text-xs text-gray-800 leading-relaxed font-sans my-auto">
+                "The cab ride back to your place, watching you sleep peacefully like a baby, feeling so safe and comfortable next to me. In that quiet moment, I promised to always protect that peace for you."
+              </p>
+              <span class="text-[10px] text-indigo-700 font-bold text-right">Tap again to flip back 💖</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 7: 23 HEART-POPPING BUBBLE WRAP
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="7">
+        <span>🔒 Surprise #7</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">7. 23 Heart-Popping Bubble Wrap 🫧</h2>
+        <p class="text-sm text-gray-600 mt-2">Pop all 23 sensory heart bubbles to reveal an adorable secret confession!</p>
+        <p id="popped-counter" class="text-xs font-bold text-rose-600 mt-2">0/23 Popped</p>
+      </div>
+
+      <div id="bubble-wrap-grid" class="flex flex-wrap justify-center gap-3 max-w-lg mx-auto p-4 bg-pink-50/70 rounded-2xl border border-pink-200">
+        <!-- 23 bubble hearts generated in app.js -->
+      </div>
+
+      <div id="bubble-success-msg" class="hidden max-w-md mx-auto mt-4 p-4 bg-rose-50 border border-rose-300 rounded-xl text-center animate-bounce">
+        <p class="font-hand text-xl font-bold text-rose-600">You popped all 23 hearts, Cutu! 💖</p>
+        <p class="text-xs text-gray-600 mt-1">"You stole my heart long ago, and you can keep it forever."</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 8: VIRTUAL BOUQUET BUILDER
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="8">
+        <span>🔒 Surprise #8</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">8. Digital Bouquet Builder 💐 </h2>
+        <p class="text-sm text-gray-600 mt-2">Click flowers to arrange your personalized 23rd birthday bouquet in the glass vase!</p>
+      </div>
+
+      <div id="flower-palette" class="flex flex-wrap justify-center gap-2 mb-6">
+        <!-- Flower buttons populated in app.js -->
+      </div>
+
+      <div class="max-w-md mx-auto glass-card p-6 flex flex-col items-center">
+        <!-- Flowers Display -->
+        <div id="bouquet-vase-display" class="min-h-[100px] flex flex-wrap justify-center items-center py-2">
+          <!-- Blooms inserted here -->
+        </div>
+        <!-- Glass Vase -->
+        <div class="w-32 h-28 bg-gradient-to-b from-cyan-100/60 to-blue-200/50 rounded-b-3xl border-2 border-white shadow-xl flex items-center justify-center backdrop-blur-md">
+          <span class="text-xs font-bold text-rose-600 uppercase font-serif tracking-wider">For Shreya</span>
+        </div>
+        <p id="bouquet-count" class="text-xs font-semibold text-rose-500 mt-4">0 Blooms Added</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 9: GUCCHU PUCCHU'S LOVE SLOT MACHINE
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="9">
+        <span>🔒 Surprise #9</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">9. Gucchu Pucchu's Love Slot Machine 🎰</h2>
+        <p class="text-sm text-gray-600 mt-2">Pull the lever to spin the reels and claim your official cute titles & prizes!</p>
+      </div>
+
+      <div class="max-w-sm mx-auto glass-card p-6 text-center border-2 border-rose-300">
+        <!-- Reels -->
+        <div class="flex justify-center gap-4 bg-slate-900 p-5 rounded-2xl shadow-inner mb-6 border border-slate-700">
+          <div id="reel-1" class="text-4xl bg-slate-800 w-16 h-16 flex items-center justify-center rounded-xl border border-slate-600 shadow">💖</div>
+          <div id="reel-2" class="text-4xl bg-slate-800 w-16 h-16 flex items-center justify-center rounded-xl border border-slate-600 shadow">👑</div>
+          <div id="reel-3" class="text-4xl bg-slate-800 w-16 h-16 flex items-center justify-center rounded-xl border border-slate-600 shadow">✨</div>
+        </div>
+
+        <button id="slot-spin-btn" class="w-full py-3 bg-gradient-to-r from-amber-400 via-rose-500 to-pink-500 text-white font-bold rounded-xl shadow-lg hover:brightness-110 transition-all text-sm uppercase tracking-wider">
+          ✨ Pull Lever / Spin!
+        </button>
+
+        <p id="slot-payout-text" class="text-xs text-gray-600 mt-4 font-medium min-h-[36px] flex items-center justify-center">
+          Spin to win sweet compliments for Cutu!
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 10: WAX-SEALED SECRET LOVE LETTER
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="10">
+        <span>🔒 Surprise #10</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">10. The Royal Wax-Sealed Secret Letter 📜</h2>
+        <p class="text-sm text-gray-600 mt-2">A handwritten letter strictly confidential for Shreya Kabra's eyes only. Tap the seal to break it open.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto bg-gradient-to-br from-amber-50 via-orange-50/70 to-amber-100/50 p-6 sm:p-10 rounded-3xl shadow-2xl border-2 border-amber-200 relative">
+        <!-- Sealed State -->
+        <div id="wax-seal-container" class="flex flex-col items-center justify-center py-12">
+          <div id="wax-seal-btn" class="wax-seal cursor-pointer transform hover:scale-110 transition-all duration-300">
+            <span class="font-serif text-3xl font-black text-amber-100">S</span>
+          </div>
+          <p class="text-xs font-semibold text-rose-700 mt-5 uppercase tracking-widest animate-pulse">Click Seal to Break & Open Letter</p>
+        </div>
+
+        <!-- Unfolded Letter Content -->
+        <div id="secret-unfolded-letter" class="hidden space-y-6 text-gray-800">
+          <!-- Letter Header / Controls -->
+          <div class="flex flex-wrap justify-between items-center border-b border-amber-300 pb-4 gap-3 no-print">
+            <div>
+              <span class="font-hand text-3xl text-rose-600 font-bold block">My Dearest Shreya,</span>
+              <span class="text-xs text-amber-800 font-mono">Turning 23 • Forever My Pookiebear</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button id="letter-audio-toggle" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-rose-100 hover:bg-rose-200 text-rose-700 border border-rose-300 transition-all flex items-center gap-1.5 shadow-sm">
+                <span>✨ Soft Melody</span>
+              </button>
+              <button id="letter-print-btn" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-amber-200 hover:bg-amber-300 text-amber-900 border border-amber-400 transition-all flex items-center gap-1.5 shadow-sm">
+                <span>✨️ Save Keepsake</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Letter Tabs -->
+          <div class="flex gap-2 border-b border-amber-200 pb-2 no-print">
+            <button id="tab-scroll-1" class="letter-tab-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all">
+              📜 Scroll I: The College Days, Chai & Sangam
+            </button>
+            <button id="tab-scroll-2" class="letter-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-amber-800 hover:bg-rose-50 transition-all">
+              📜 Scroll II: The Mumbai Calling, The CSMT Hug & Forever
+            </button>
+          </div>
+
+          <!-- Tab Content 1: The Beginning (College, Library, Chai, etc.) -->
+          <div id="letter-content-1" class="space-y-4 text-gray-800 leading-relaxed font-sans text-sm sm:text-base">
+            <p class="font-hand text-2xl text-rose-600 font-semibold">Hey Shreya,</p>
+            <p>
+              There are so many things I want to say to you, but let's start from the beginning.
+            </p>
+            <p>
+              Ever since the day I first saw you in college, I found you really interesting. I never thought I'd meet someone like you in this city, someone who's a perfect mixture of cute, beautiful, clumsy, and intelligent. Honestly, I never imagined I'd find my crush at Sangam, TBH. But you caught my attention, especially when you were walking around the library on <strong class="text-rose-600 font-semibold">14th September 2023</strong>. I remember how I couldn't take my eyes off you and kept trying to find ways to look at you secretly without making it too obvious. Looking back at those days, I sometimes feel like I joined college at just the right time because it gave me the chance to meet you. And honestly, I'm so glad I did.
+            </p>
+            <p>
+              Ever since you entered my life, so much has changed. I'll always give you so much credit for helping me grow from a boy into the man I am today, and I'm genuinely grateful to you for that.
+            </p>
+            <div class="p-4 bg-rose-50/80 rounded-2xl border-l-4 border-rose-400 my-3 italic text-gray-700">
+              "You're such a <strong>chhota packet, bada dhamaka</strong> kind of person. You never know what you're going to do next! If things go your way, you'll celebrate, and if they don't, you'll probably cry about it. But honestly, that's one of the fun parts about you."
+            </div>
+            <p>
+              You like taking risks and giving things your best. And you know what I admire the most about you? You do so many things but hardly ever take credit for them. You achieve things, help people, and keep going, yet you remain so humble. I hope you always recognize how amazing you are and give yourself credit for all the wonderful things you do.
+            </p>
+            <p>
+              It's been almost four years since I've known you, and I never imagined I'd meet someone as sweet, kind-hearted, and genuine as you. You and the little things you do make me fall for you a little more every day. Some of my favourite memories with you are our long drives, blasting music, singing karaoke, making fun of each other, partying, and talking about life and much more. You're such a gem of a person that I can talk to you about anything and everything without ever being afraid of being judged. That kind of comfort is rare, and I'm genuinely grateful to have it with you. And honestly, your talks and smile and laughter have a way of making my day incredibly better and I will always wait for your calls and messages irrespective of time or the timezones.
+            </p>
+            <p>
+              I just love listening to you talk your heart out about everything: what happened, how it happened, when it happened, why it happened, and especially what irritated you the most. I love hearing all the little details and how you express yourself when you're telling a story or chaos or just day to day things. I will always be there to listen to you sharing your happiness, worries, random thoughts, and everyday drama with me. And trust me, cutie, I'll always be happy to listen to you yap.
+            </p>
+            <div class="p-4 bg-amber-100/70 rounded-2xl border-l-4 border-amber-500 my-3 font-medium text-amber-950">
+              "And especially during 5 days, if u tell me that an elephant can fly , I will definitely agree with you baba . I simply can't take that risk in that matter otherwise I know what will happen to me. 🧸"
+            </div>
+            <p>
+              I can never forget our long-drive conversations, late night talks , Jupiter rides , Fictionary , cycling, Mumbai Diaries, and, of course, a very specific name: <em class="text-rose-600 font-bold">3 Year Senior Sangam</em>. Who would've thought that name would start it all? It's funny how something that seems so small at first can eventually become such a special memory. When I look back at these moments, I'm grateful that we got to experience them together. And I know we're only getting started and that we have countless more drives, cycling adventures, karaoke sessions, random plans, and conversations ahead of us. I hope that years from now, we'll look back at these days, laugh about how everything began, and smile at all the memories we've made.
+            </p>
+            <p>
+              Shreya, I want you to know that you're truly a blessing in disguise in my life. I'm so grateful that I got to know you and that life gave me the chance to meet someone like you. Your happiness matters to me, and I genuinely want to see you doing well in everything you choose to do. I hope you never underestimate yourself or forget how capable you are. Even when things don't go according to plan, keep believing in yourself and remember that one difficult day doesn't define you. Don't worry I will always be by your side clapping on your every achievement in life and hooting for you. You deserve to be proud of your achievements, big or small, and I hope life gives you countless reasons to feel happy and proud of yourself.
+            </p>
+            <p>
+              No matter what life throws your way, I want you to know that I'll always be there for you, cutie. Whether you want someone to celebrate with, someone to listen to you, or someone to support you when things get difficult, you can count on me. And yes, I'll continue annoying you forever in this lifetime. There's absolutely no escaping to that, so please consider this as your official warning!
+            </p>
+            <p>
+              And how could I forget your first love: <strong class="text-amber-800 font-bold">CHAI</strong> ☕. I'm convinced half your problems can be solved with a cup of chai, and the other half require a trip to Tea Post. If there's ever a competition between me and chai for your attention, I'm honestly not sure I'd stand a chance. But that's okay; every great love story has its competition, and apparently mine is served in a cup.
+            </p>
+            <p>
+              Happiest Birthday, Shreyuu! Keep smiling and being the amazing person you are. I hope life gives you all the happiness you deserve and that you conquer every single thing you've ever wanted. May this year bring you new opportunities, beautiful experiences, endless laughter, and countless reasons to be proud of yourself. Here's to creating more memories together, going on more drives, singing more songs, cycling, laughing at the most random things, and having endless conversations about life.
+            </p>
+            <p class="font-hand text-xl text-rose-600 font-bold pt-2">
+              Love you and miss you loads, Shreya. Stay the same wonderful Shreyuu you are, and never stop smiling that beautiful smile of yours and Take Care. Happiest Birthday once again, cutie! ❤️
+            </p>
+          </div>
+
+          <!-- Tab Content 2: Mumbai Reunion & My Heart's Confession -->
+          <div id="letter-content-2" class="hidden space-y-4 text-gray-800 leading-relaxed font-sans text-sm sm:text-base">
+            <p class="font-hand text-2xl text-rose-600 font-semibold">Hey my cutiepie,</p>
+            <p>
+              I don't know where to start but there is so much I wanna say. I'm so happy seeing you achieve your dreams and things that you wanted. You are the best yaar!
+            </p>
+            <p>
+              Jabse Mumbai gayi I miss you everyday even more—your smile, your laughs. Idk yaar I feel like tu hai to kisi cheez ki tension kyun leni hai. But ek cheez which hurts me a lot that jab tere breakdowns hote I'm not physically there with you. Ik tu bolti nahi hai but ik you miss me a lot.
+            </p>
+            <p>
+              Sometimes I feel like you have grown up from the Shreya I knew—you're a grown-up girl now who is much more calmer, sensible, and a better person. But I miss our deep talks. Tu jaldi se free hoke aaja yaar, I'm literally on the verge of holding my patience aisa lag raha hai!
+            </p>
+            <div class="p-4 bg-rose-50/80 rounded-2xl border-l-4 border-rose-400 my-3 italic text-gray-700">
+              "Jo mere sab family and friends nahi kara paye ya idk, I tried my best coming to Mumbai since 3 years but wasn't able to. And look, this year you called and I was like: <em>'Chalo sab bhaad mein jao, main aa raha hoon Mumbai!'</em>"
+            </div>
+            <p>
+              Pata hai, exams se pehle I was like jab tune bola ki tu bolta hai aave tab bolna ya tickets kara tab, then I was like let me do this now. Seriously bolta hoon, poora raste I was just thinking: <em>bas tujhse milna hai</em>.
+            </p>
+            <p>
+              And the moment I reached CSMT station, my heart was racing and I was very anxious because I wanted to see you after such a long time. As soon as you ran to me... maine socha tha tujhe hug karunga ya forehead pe kiss, but in such excitement I wasn't able to control my emotions. And when you hugged me, I was like: <strong class="text-rose-600 font-semibold">'Hey bhagwan please iss time ko yahi freeze kar do.'</strong> I get chills remembering this exact moment. Isse best kuch nahi tha, I felt at ease after seeing you.
+            </p>
+            <p>
+              Then we went to Marine Drive and I was like: this cutie is near me, let me just shut my mind and relax and enjoy with her. Then came the cycling part which was very fun and exciting to do—yes, I would do it again with you next time I come to Mumbai!
+            </p>
+            <p>
+              What was so special was the moments with you. And the best part was the cab back to your place—you sleeping like a baby feeling very safe and comfy. And thanks yaar mujhe Mumbai ghumane ke liye, shayad main hota to jaata bhi nahi.
+            </p>
+            <div class="p-4 bg-amber-100/70 rounded-2xl border-l-4 border-amber-500 my-3 font-medium text-amber-950">
+              "Ek cheez hai I wanted to say thanks to you very much: a dream of mine came true. Holding my favorite person's hand and going to ISKCON Mandir—you made it come true. Thanks, my cutu."
+            </div>
+            <p>
+              Yes, idk why I love listening to you yap. Jo ladka kisi ki nahi sunta hai, yes he listens to you a lot! Thanks for making me grow from a boy to the man who I am today. Yes, nahi bola to bol deta hoon: tu mere liye bohot important hai, I'm sorry but I can't afford to lose you. And yes, jisko jo bolna hai bole, IDC. I know you very well, so don't listen to outside noise. Let people talk behind you; you keep growing in life.
+            </p>
+            <p>
+              And then we went to the club and that was some crazy pagalpan—just the two of us and our company. I feel like this: if we both are together, we are a solid duo, and Shreya, <strong class="text-rose-600 font-bold">you complete me</strong>.
+            </p>
+            <p>
+              You already know what things I wanted to say more that are in my heart, but yes: <strong class="text-rose-600 font-bold">I want this Shreya Kabra in my every life</strong>, because you are too special my girl. No one comes near you and close to you. You are my Gucchu de Pucchu and Pookiebear.
+            </p>
+            <p>
+              And yes, I miss you lots. Idk, jab tu saath hoti hai I feel like I can achieve the world with your support and love. And don't worry, ik tu bohot thak gayi hai plus aur thakegi till the 29th—your office, flat, logon ke issues and all that Mumbai things. But don't worry girl, I am waiting here to provide you the <strong class="text-rose-600 font-semibold">baby treatment</strong> that you've been waiting for!
+            </p>
+            <p>
+              This distance between us has made me understand a lot of things. Just wait for some time more cutu, this boy will show you how he will achieve the world with you by my side forever. When things get hard, you know I'm always there in your ups and downs, clapping and rooting for you.
+            </p>
+            <p>
+              Tu bohot special hai yaar Shreya mere liye. Just come here, I am waiting to see you in person, you yapping and I will listen to every conversation of yours.
+            </p>
+            <p class="font-hand text-xl text-rose-600 font-bold pt-2">
+              Happiest 23rd Birthday My Girl, My Shreyuuuuuu, My Cutu! Be happy and smile like that and always be proud of yourself, cause you have come a long way and still many more miles to go. Love you lots and I miss you very much! ❤️
+            </p>
+          </div>
+
+          <div class="text-right pt-6 border-t border-amber-300">
+            <p class="font-hand text-2xl text-rose-600 font-bold">Yours completely & forever in every lifetime,</p>
+            <p class="font-hand text-xl text-gray-700">To my forever Cutu, Gucchu Pucchu & Pookiebear ❤️</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 11: "OPEN WHEN..." CARE PACKAGE BOXES
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="11">
+        <span>🔒 Surprise #11</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">11. "Open When..." Gift Boxes 📦</h2>
+        <p class="text-sm text-gray-600 mt-2">Click each box to untie the ribbon and read your special reminder whenever you need it most.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <!-- Box 1 --><div class="care-package-box glass-card p-5 cursor-pointer border border-rose-200 hover:border-rose-400"><div class="flex items-center gap-3"><span class="text-3xl">🥺</span><!--
+        <div class="care-package-box glass-card p-5 cursor-pointer border border-rose-200 hover:border-rose-400">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">✨</span>
+            <div>
+              --><h4 class="font-bold text-gray-900 text-sm">Open When You Miss Me</h4>
+              <p class="text-xs text-rose-500">Tap to open box</p>
+            </div>
+          </div>
+          <div class="care-content hidden mt-3 pt-3 border-t border-rose-100 text-xs text-gray-700 leading-relaxed font-sans">
+            "Remember that moment at CSMT station when you ran towards me and hugged me so tight? I prayed to God to freeze time right there. Distance means nothing when you mean this much. I'm right here waiting to give you the royal baby treatment and listen to you yap for hours. You are never alone, Cutu."
+          </div>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="care-package-box glass-card p-5 cursor-pointer border border-rose-200 hover:border-rose-400">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">☕</span>
+            <div>
+              <h4 class="font-bold text-gray-900 text-sm">Open When You're Stressed</h4>
+              <p class="text-xs text-rose-500">Tap to open box</p>
+            </div>
+          </div>
+          <div class="care-content hidden mt-3 pt-3 border-t border-rose-100 text-xs text-gray-700 leading-relaxed font-sans">
+            "Hey my chhota packet, bada dhamaka! I know Mumbai gets hectic—the flat issues, office deadlines till the 29th, and people draining your energy. But remember: one hard day doesn't define how incredible you are. Take a deep breath, grab a warm cup of Chai (or head to Tea Post!), and remember I'm always here clapping and hooting for you."
+          </div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="care-package-box glass-card p-5 cursor-pointer border border-rose-200 hover:border-rose-400">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">🌙</span>
+            <div>
+              <h4 class="font-bold text-gray-900 text-sm">Open When You Can't Sleep</h4>
+              <p class="text-xs text-rose-500">Tap to open box</p>
+            </div>
+          </div>
+          <div class="care-content hidden mt-3 pt-3 border-t border-rose-100 text-xs text-gray-700 leading-relaxed font-sans">
+            "Remember the cab ride back in Mumbai? You fell asleep next to me like an innocent baby, feeling totally safe, cozy, and at peace. Close your eyes, rest your mind, and remember that safe sanctuary. I will always protect your peace. Sweet dreams, my Gucchu Pucchu."
+          </div>
+        </div>
+
+        <!-- Box 4 -->
+        <div class="care-package-box glass-card p-5 cursor-pointer border border-rose-200 hover:border-rose-400">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">🧸</span>
+            <div>
+              <h4 class="font-bold text-gray-900 text-sm">Open When You Need a Laugh</h4>
+              <p class="text-xs text-rose-500">Tap to open box</p>
+            </div>
+          </div>
+          <div class="care-content hidden mt-3 pt-3 border-t border-rose-100 text-xs text-gray-700 leading-relaxed font-sans">
+            "Official Survival Protocol: If it's *those 5 days* and you tell me an elephant can fly, I will 1000% agree with you baba! I'm taking zero risks! 😂 And remember: consider this your official lifetime warning—I'm going to annoy you forever and ever, with no escaping!"
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 12: MAGIC CRYSTAL BALL
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="12">
+        <span>🔒 Surprise #12</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">12. Magic Crystal Ball of Our Future 🔮</h2>
+        <p class="text-sm text-gray-600 mt-2">Tap the glowing mystic orb to peer into what adventures and happiness Year 23 holds for you.</p>
+      </div>
+
+      <div class="max-w-sm mx-auto text-center">
+        <div id="crystal-ball" class="w-32 h-32 mx-auto rounded-full bg-gradient-to-tr from-purple-900 via-indigo-600 to-pink-400 shadow-2xl flex items-center justify-center cursor-pointer border-4 border-purple-200 transform hover:scale-105 transition-all"><span class="text-4xl">🔮</span><!--
+          <span class="text-4xl">✨</span>
+        </div>
+        --><p id="crystal-answer" class="text-sm text-gray-700 font-medium mt-6 min-h-[48px] flex items-center justify-center p-3 glass-card">
+          Tap the crystal ball to divine your 23rd year prophecy!
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 13: MINI-GAME "CATCH THE HEARTS"
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="13">
+        <span>🔒 Surprise #13</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">13. Mini-Game: Catch 23 Hearts for Shreya 🕹️</h2>
+        <p class="text-sm text-gray-600 mt-2">Move the basket with your mouse or finger to catch falling hearts. Catch 23 to win the Golden Birthday Trophy!</p>
+        <p id="game-score" class="text-sm font-bold text-rose-600 mt-1">Score: 0/23</p>
+      </div>
+
+      <div class="relative max-w-md mx-auto rounded-2xl overflow-hidden border-2 border-rose-300 shadow-xl bg-slate-900">
+        <canvas id="game-canvas" class="w-full cursor-none"></canvas>
+      </div>
+
+      <div class="flex justify-center gap-4 mt-4">
+        <button id="game-start-btn" class="px-5 py-2 bg-rose-500 hover:bg-rose-600 text-white font-bold rounded-xl text-xs shadow-md">
+          Start Mini-Game
+        </button>
+      </div>
+
+      <div id="game-trophy" class="hidden max-w-sm mx-auto mt-4 p-4 bg-amber-50 border-2 border-amber-300 rounded-2xl text-center shadow animate-bounce">
+        <span class="text-4xl">🏆</span>
+        <h4 class="font-bold text-amber-900 text-sm mt-1">CHAMPION OF MY HEART!</h4>
+        <p class="text-xs text-gray-600">"You scored 23 points! Official title awarded: Cutest 23-Year-Old on Earth."</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 14: 23 CHAPTERS OF SHREYA FLIPBOOK
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="14">
+        <span>🔒 Surprise #14</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">14. The 23 Chapters of Shreya 📖</h2>
+        <p class="text-sm text-gray-600 mt-2">Flip through the pages of what makes you so endlessly unique and irreplaceable.</p>
+      </div>
+
+      <div class="max-w-md mx-auto glass-card p-6 text-center border-t-4 border-rose-400">
+        <span class="text-xs uppercase tracking-widest text-rose-500 font-bold">Storybook of Us</span>
+        <h3 id="book-chapter-title" class="font-serif text-xl font-bold text-gray-900 mt-2">
+          Chapter 1: The Magic of Your Smile
+        </h3>
+        <p id="book-chapter-desc" class="text-sm text-gray-600 mt-3 leading-relaxed min-h-[50px]">
+          How one simple grin from you can turn around an entire week.
+        </p>
+
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-rose-100">
+          <button id="book-prev-btn" class="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-lg text-xs font-semibold">
+            ← Previous
+          </button>
+          <span class="text-xs text-gray-400">Flip Page</span>
+          <button id="book-next-btn" class="px-3 py-1.5 bg-rose-500 hover:bg-rose-600 text-white rounded-lg text-xs font-semibold">
+            Next Chapter →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 15: THE BABY TREATMENT & COMFORT SANCTUARY
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="15">
+        <span>🔒 Surprise #15</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100/90 text-rose-700 text-[10px] font-bold uppercase tracking-wider mb-2 border border-rose-200">
+          <span>✨ Your Personal Safe Haven ✨</span>
+        </div>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">15. The Baby Treatment & Comfort Sanctuary 💆‍♀️🧸</h2>
+        <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+          For when Mumbai feels exhausting, when you're overwhelmed, or when you just miss being held. Tap each comfort token to receive your instant dose of love, pampering, and peace.
+        </p>
+      </div>
+
+      <!-- Interactive 4 Comfort Tokens -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto mb-6" id="comfort-tokens-grid">
+        <button class="comfort-token-btn glass-card p-4 rounded-2xl flex flex-col items-center text-center border-2 border-rose-400 bg-rose-100/70 transition-all cursor-pointer shadow-md" data-token="hug">
+          <span class="text-3xl sm:text-4xl mb-2 animate-pulse">🫂</span>
+          <span class="font-bold text-xs sm:text-sm text-gray-800">The 60-Sec Hug</span>
+          <span class="text-[10px] text-rose-500 font-semibold mt-0.5">Never letting go</span>
+        </button>
+
+        <button class="comfort-token-btn glass-card p-4 rounded-2xl flex flex-col items-center text-center border-2 border-amber-200 hover:border-amber-400 transition-all cursor-pointer bg-gradient-to-br from-amber-50 to-orange-50" data-token="kiss">
+          <span class="text-3xl sm:text-4xl mb-2">💆‍♀️</span>
+          <span class="font-bold text-xs sm:text-sm text-gray-800">Forehead Kiss</span>
+          <span class="text-[10px] text-amber-600 font-semibold mt-0.5">Unclench your jaw</span>
+        </button>
+
+        <button class="comfort-token-btn glass-card p-4 rounded-2xl flex flex-col items-center text-center border-2 border-orange-200 hover:border-orange-400 transition-all cursor-pointer bg-gradient-to-br from-orange-50 to-amber-50" data-token="chai">
+          <span class="text-3xl sm:text-4xl mb-2">☕</span>
+          <span class="font-bold text-xs sm:text-sm text-gray-800">Tea Post Chai</span>
+          <span class="text-[10px] text-orange-600 font-semibold mt-0.5">50% solved instantly</span>
+        </button>
+
+        <button class="comfort-token-btn glass-card p-4 rounded-2xl flex flex-col items-center text-center border-2 border-purple-200 hover:border-purple-400 transition-all cursor-pointer bg-gradient-to-br from-purple-50 to-pink-50" data-token="yap">
+          <span class="text-3xl sm:text-4xl mb-2">👂</span>
+          <span class="font-bold text-xs sm:text-sm text-gray-800">Yapping Corner</span>
+          <span class="text-[10px] text-purple-600 font-semibold mt-0.5">All ears, zero judgment</span>
+        </button>
+      </div>
+
+      <!-- Live Comfort Display Box -->
+      <div id="comfort-display" class="max-w-2xl mx-auto glass-card p-6 sm:p-8 rounded-3xl border-2 border-rose-300 bg-gradient-to-br from-rose-50/90 to-pink-50/80 shadow-xl transition-all text-center">
+        <div id="comfort-icon" class="text-4xl mb-3">🫂</div>
+        <h4 id="comfort-title" class="font-serif text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+          The 60-Second Tight Warm Hug
+        </h4>
+        <div class="w-16 h-1 bg-rose-400 rounded-full mx-auto mb-4"></div>
+        <p id="comfort-message" class="text-sm sm:text-base text-gray-800 leading-relaxed font-sans max-w-xl mx-auto">
+          "Wrap your arms around yourself right now—that's me holding you with all the warmth in my soul. Remember that exact moment at CSMT station when time felt like it stood still? Close your eyes and feel that exact same embrace. I am right here with you, Shreya. Distance changes nothing. You are safe in my arms forever."
+        </p>
+        <p class="text-xs text-rose-500 font-bold mt-5 font-hand text-lg">
+          — Yours forever & always ❤️
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 16: MIDNIGHT FIREWORKS LAUNCHPAD
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative overflow-hidden">
+      <div class="surprise-badge locked" data-surprise-badge="16">
+        <span>🔒 Surprise #16</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">16. Midnight Fireworks Launchpad 🎆</h2>
+        <p class="text-sm text-gray-600 mt-2">Click or tap anywhere in the night sky to launch custom heart fireworks!</p>
+      </div>
+
+      <div class="relative max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-slate-700">
+        <canvas id="fireworks-canvas" class="w-full cursor-crosshair"></canvas>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 17: BOARDING PASS TO ADVENTURE
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="17">
+        <span>🔒 Surprise #17</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">17. Boarding Pass to Our Next Adventure ✈️</h2>
+        <p class="text-sm text-gray-600 mt-2">An authentic first-class boarding pass for our next adventure together. Tap the stub to redeem your pass!</p>
+      </div>
+
+      <!-- Boarding Pass Graphic -->
+      <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col md:flex-row">
+        <!-- Main Ticket -->
+        <div class="p-6 flex-grow bg-gradient-to-r from-rose-50 to-pink-50">
+          <div class="flex justify-between items-center border-b border-rose-200 pb-3">
+            <span class="text-xs font-bold text-rose-600 uppercase tracking-widest">Airlines of Love</span>
+            <span class="text-xs bg-rose-200 text-rose-800 font-bold px-2.5 py-0.5 rounded-full">First Class VIP</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 my-4">
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-bold">Passenger</p>
+              <p class="font-bold text-gray-900 text-sm">Shreya Kabra (Cutu)</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-bold">Flight</p>
+              <p class="font-bold text-rose-600 text-sm">LOVE-23</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-bold">Origin</p>
+              <p class="font-bold text-gray-900 text-sm">Everyday Routine</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-gray-400 uppercase font-bold">Destination</p>
+              <p class="font-bold text-gray-900 text-sm">Wherever We Go Together 🌍</p>
+            </div>
+          </div>
+
+          <p class="text-[10px] text-gray-500 font-mono">SEAT: 1A (Next to Me Forever) • GATE: 23</p>
+        </div>
+
+        <!-- Tear-off Stub -->
+        <div id="ticket-stub" class="p-6 bg-rose-500 text-white flex flex-col justify-between items-center text-center border-t-2 md:border-t-0 md:border-l-2 border-dashed border-rose-300 cursor-pointer hover:bg-rose-600 transition-all md:w-44">
+          <p class="text-xs uppercase font-bold tracking-widest">CLAIM TICKET</p>
+          <span class="text-3xl my-2">🎟️</span>
+          <p class="text-[10px] leading-tight opacity-90">Tap to redeem birthday adventure pass</p>
+        </div>
+      </div>
+
+      <div id="boarding-claimed-msg" class="hidden max-w-xl mx-auto mt-6 p-5 bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-300 rounded-2xl text-center shadow-lg">
+        <p class="text-2xl mb-2">🎉✈️💕</p>
+        <p class="font-serif text-lg font-bold text-emerald-800">Adventure Pass Claimed!</p>
+        <p class="text-sm text-emerald-700 mt-2 italic">One first-class ticket for two. Destination: everywhere we want to go, together. Valid: forever.</p>
+        <p class="text-xs text-emerald-500 mt-2">Wherever you want to go, Shreya - I am already packed and ready. 🌍</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 18: LOVE TRIVIA QUIZ
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="18">
+        <span>🔒 Surprise #18</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">18. The Shreya & Us Love Quiz 🧩</h2>
+        <p class="text-sm text-gray-600 mt-2">A cute trivia test of our real inside jokes, core memories, and survival secrets!</p>
+      </div>
+
+      <div id="quiz-container" class="max-w-lg mx-auto glass-card p-6 border-2 border-rose-200">
+        <div class="flex justify-between items-center mb-3">
+          <p id="quiz-q-num" class="text-xs font-bold text-rose-500 uppercase tracking-wider">Question 1 of 5</p>
+          <span id="quiz-score" class="text-xs font-mono font-bold text-rose-600 bg-rose-100 px-2.5 py-0.5 rounded-full">Score: 0 / 5</span>
+        </div>
+        <h4 id="quiz-question" class="font-serif font-bold text-gray-900 text-base mb-4 leading-snug">
+          Loading questions for Cutu...
+        </h4>
+
+        <div id="quiz-options" class="space-y-2.5">
+          <!-- Populated dynamically via app.js -->
+        </div>
+
+        <div id="quiz-feedback" class="hidden mt-4 p-3 rounded-xl text-xs font-medium text-center"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 19: WISHING JAR (23 ORIGAMI STARS)
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="19">
+        <span>🔒 Surprise #19</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">19. Glass Jar of 23 Origami Stars ⭐</h2>
+        <p class="text-sm text-gray-600 mt-2">Click the glass jar to draw a paper star and unfold a sweet wish for your 23rd year.</p>
+        <p id="wish-star-count" class="text-xs text-rose-500 font-bold mt-1">Tap the jar to begin ✨</p>
+      </div>
+
+      <div class="max-w-sm mx-auto text-center">
+        <div id="wishing-jar" class="w-36 h-48 mx-auto glass-card rounded-3xl border-2 border-white shadow-xl flex flex-col justify-end items-center pb-4 cursor-pointer hover:scale-105 transition-all relative overflow-hidden bg-gradient-to-t from-pink-100/70 to-rose-50/50">
+          <div class="absolute inset-0 flex flex-wrap p-4 justify-center items-center text-xl gap-1">
+            ⭐ ✨ 🌟 ⭐ 💫 ⭐ ✨ 🌟 ⭐ ✨
+          </div>
+          <span class="text-xs font-bold text-rose-600 bg-white/90 px-3 py-1 rounded-full shadow z-10">Tap Jar to Pick Star</span>
+        </div>
+
+        <p id="unfolded-wish-text" class="text-xs text-gray-700 font-medium mt-6 min-h-[44px] flex items-center justify-center p-3 glass-card">
+          Click the jar to unfold your first origami wish star 🌟
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 20: EMERGENCY DANCE PARTY / RAVE
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative text-center">
+      <div class="surprise-badge locked" data-surprise-badge="20">
+        <span>🔒 Surprise #20</span>
+      </div>
+
+      <div class="max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">20. Emergency Pookiebear Dance Rave! 🪩</h2>
+        <p class="text-sm text-gray-600 mt-2">Tired of calm romantic vibes? Hit this button to transform the entire website into an epic dance party!</p>
+      </div>
+
+      <button id="disco-rave-btn" class="px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:brightness-110 text-white font-black rounded-2xl shadow-xl text-base uppercase tracking-wider transform hover:scale-105 transition-all">
+        🎉 Start Emergency Pookiebear Dance Party!
+      </button>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 21: BUCKET LIST TRAVEL MAP
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative">
+      <div class="surprise-badge locked" data-surprise-badge="21">
+        <span>🔒 Surprise #21</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">21. Dream Travel Bucket List 🗺️</h2>
+        <p class="text-sm text-gray-600 mt-2">Pins of places in the world I want to explore hand-in-hand with you during your 23rd year and beyond.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 max-w-3xl mx-auto text-center">
+        <button class="travel-pin glass-card p-4 hover:border-rose-400 transition-all" data-place="Paris, France"><span class="text-3xl">🗼</span><!--
+          <span class="text-3xl">✨</span>
+          --><p class="font-bold text-xs text-gray-800 mt-2">Paris</p>
+          <p class="text-[10px] text-gray-500">Croissants & Romance</p>
+        </button>
+
+        <button class="travel-pin glass-card p-4 hover:border-rose-400 transition-all" data-place="Swiss Alps, Switzerland">
+          <span class="text-3xl">🏔️</span>
+          <p class="font-bold text-xs text-gray-800 mt-2">Switzerland</p>
+          <p class="text-[10px] text-gray-500">Snowy Cozy Cabins</p>
+        </button>
+
+        <button class="travel-pin glass-card p-4 hover:border-rose-400 transition-all" data-place="Maldives">
+          <span class="text-3xl">🏝️</span>
+          <p class="font-bold text-xs text-gray-800 mt-2">Maldives</p>
+          <p class="text-[10px] text-gray-500">Crystal Blue Waters</p>
+        </button>
+
+        <button class="travel-pin glass-card p-4 hover:border-rose-400 transition-all" data-place="Kyoto, Japan"><span class="text-3xl">🌸</span><!--
+          <span class="text-3xl">✨</span>
+          --><p class="font-bold text-xs text-gray-800 mt-2">Kyoto</p>
+          <p class="text-[10px] text-gray-500">Cherry Blossoms</p>
+        </button>
+
+        <button class="travel-pin glass-card p-4 hover:border-rose-400 transition-all" data-place="Amalfi Coast, Italy"><span class="text-3xl">🍝</span><!--
+          <span class="text-3xl">✨</span>
+          --><p class="font-bold text-xs text-gray-800 mt-2">Italy</p>
+          <p class="text-[10px] text-gray-500">Pasta & Sunset Gelato</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 22: DIGITAL TIME CAPSULE TO 24
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative text-center">
+      <div class="surprise-badge locked" data-surprise-badge="22">
+        <span>🔒 Surprise #22</span>
+      </div>
+
+      <div class="max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">22. Time Capsule Sealed for Shreya at 24 ⏳</h2>
+        <p class="text-sm text-gray-600 mt-2">My 5 unbreakable promises to you as you begin this 23rd chapter.</p>
+      </div>
+
+      <button id="time-capsule-unlock-btn" class="px-6 py-2.5 bg-rose-100 hover:bg-rose-200 text-rose-700 font-bold rounded-xl text-xs border border-rose-300">
+        🔓 Unlock Time Capsule Preview
+      </button>
+
+      <div id="time-capsule-content" class="hidden max-w-lg mx-auto mt-6 text-left glass-card p-6 space-y-3.5 text-xs text-gray-700 animate-fade-in border border-rose-200">
+        <p class="font-bold text-rose-600 text-sm border-b border-rose-100 pb-2">✨ 5 Sacred Promises for Shreya's 23rd Year:</p>
+        <p class="leading-relaxed"><strong>1. The Chai & Tea Post Promise:</strong> I promise to never let your cup of chai go cold, and always accompany you to Tea Post whenever you need a recharge or a break from life.</p>
+        <p class="leading-relaxed"><strong>2. The Flying Elephant Survival Rule:</strong> If you claim an elephant can fly during your 5 days, I promise to 1000% agree with you baba! Zero arguments, zero risks—always keeping you smiling.</p>
+        <p class="leading-relaxed"><strong>3. The Chief Listener Vow:</strong> A guy who listens to nobody in this world will always listen to you yap for hours about every little detail, drama, story, and thought in your head.</p>
+        <p class="leading-relaxed"><strong>4. The Lifetime Hype Man:</strong> I promise to always stand in the front row clapping, hooting, and cheering for your every dream and achievement in life.</p>
+        <p class="leading-relaxed"><strong>5. The Royal Baby Treatment & Forever Promise:</strong> I promise to give you the royal baby treatment you deserve whenever you're exhausted, and I promise to choose this Shreya Kabra in my every single lifetime.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SURPRISE 23: SKY LANTERN MIDNIGHT WISH
+         ========================================== -->
+    <section class="glass-panel p-6 sm:p-10 relative overflow-hidden">
+      <div class="surprise-badge locked" data-surprise-badge="23">
+        <span>🔒 Surprise #23</span>
+      </div>
+
+      <div class="text-center max-w-xl mx-auto mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-900">23. Sky Lantern Midnight Wish Ceremony 🏮</h2>
+        <p class="text-sm text-gray-600 mt-2">Write your birthday wish, then release your lantern into the midnight sky. Let it travel all the way to the stars - on a clear night, you can almost see them from Marine Drive. 🌙💫</p>
+      </div>
+
+      <div id="lantern-sky" class="relative h-64 bg-slate-950 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-2xl mb-4 flex items-end justify-center pb-4">
+        <!-- Floating lanterns float here -->
+      </div>
+
+      <div class="max-w-md mx-auto flex gap-2">
+        <input id="lantern-wish-input" type="text" placeholder="Type your 23rd birthday wish here, Cutu..." class="flex-grow px-4 py-2.5 rounded-xl border border-rose-200 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400 bg-white/90">
+        <button id="release-lantern-btn" class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-bold rounded-xl text-xs shadow-md flex items-center gap-1.5 flex-shrink-0">
+          <span>Release Lantern</span>
+          <span>✨</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="mt-20 pb-10 text-center relative z-10 px-4">
+    <div class="max-w-2xl mx-auto">
+      <div class="w-16 h-px bg-rose-300 mx-auto mb-6"></div>
+      <p class="font-hand text-3xl text-rose-500 font-bold mb-3 animate-pulse">🌺 Happy 23rd Birthday, Shreya Kabra 🌺</p>
+      <p class="text-sm text-gray-500 mb-2 italic">"Chhota packet, bada dhamaka - every room you walk into becomes the best room in the world."</p>
+      <p class="text-xs text-gray-400 mb-4">From the library stare on 14th September 2023 to every chai, Jupiter ride, CSMT hug, and midnight drive ahead-</p>
+      <p class="text-sm font-semibold text-rose-600 mb-2">I want this Shreya in every lifetime. Every single one. 💘</p>
+      <p class="text-xs text-gray-400 mt-4">Crafted with every last bit of love, for my Cutu, my Gucchu Pucchu, my Pookiebear. ✨</p>
+      <div class="w-16 h-px bg-rose-300 mx-auto mt-6"></div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       GRAND CELEBRATION MODAL (ALL 23 UNLOCKED!)
+       ========================================== -->
+  <div id="grand-celebration-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-2xl">
+    <div class="glass-panel max-w-lg w-full p-8 text-center relative border-2 border-amber-300 shadow-2xl animate-fade-in">
+      <span class="text-6xl animate-bounce inline-block">👑</span>
+      <h2 class="font-serif text-3xl font-black text-gray-900 mt-2">ALL 23 SURPRISES UNLOCKED!</h2>
+      <p class="font-hand text-2xl text-rose-600 font-bold mt-1">To Shreya Kabra, The Love of My Life</p>
+      
+      <p class="text-gray-700 text-sm leading-relaxed my-6 font-sans">
+        You've explored every single memory, game, envelope, and secret letter. But the biggest truth of all is simply this: 
+        <strong class="text-rose-600 font-bold">you complete me, Shreya.</strong> 
+        <br><br>
+        I see how hard you work, I see your genuine humble heart, and even across any distance, I will always be right beside you clapping, hooting, and cheering for your every dream. I cannot wait to give you the royal baby treatment you deserve.
+        <br><br>
+        <span class="font-hand text-2xl text-rose-600 font-bold block">Happy 23rd Birthday Tomorrow, My Cutu! ❤️</span>
+        <span class="text-xs text-gray-500 font-medium">I want this Shreya Kabra in my every single lifetime.</span>
+      </p>
+
+      <button id="close-finale-btn" class="w-full py-3.5 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold rounded-xl shadow-lg">
+        Keep Exploring My Universe 💖
+      </button>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
+
+
